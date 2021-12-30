@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, Button} from 'react-bootstrap'
 
 export default function theatershow({data}) {
     console.log(data);
@@ -29,12 +30,18 @@ export default function theatershow({data}) {
                 <center><hr style={{ border: '#F00 thin solid', width: '150px', }} /></center>
                 <br />
                 {data?.results?.map((movie) => (
-                    <div className="item">
-                        <img alt="movie" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie?.poster_path}`} className="img-thumbnail" />
-                        <button className="btn btn-danger mt-3">{movie?.original_title}</button>
-                        <br />
-                        <br />
-                    </div>
+                    <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${movie?.poster_path}`} />
+                    <Card.Body>
+                      <Card.Title style={{color: '#000'}}>{movie?.original_title}</Card.Title>
+                      {/* <Card.Text>
+                        Some quick example text to build on the card title and make up the bulk of
+                        the card's content.
+                      </Card.Text> */}
+                      <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                  </Card>
+                   
             ))}
                 <div className="owl-carousel owl-theme">
                 </div>
